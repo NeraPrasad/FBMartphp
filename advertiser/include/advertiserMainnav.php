@@ -1,5 +1,3 @@
-
-
 <div class="horizontal-menu">
       <nav class="navbar top-navbar col-lg-12 col-12 p-0">
         <div class="container-fluid">
@@ -125,10 +123,14 @@
 
             <!-- Button -->
             <ul class="navbar-nav navbar-nav-right">
+
+
                 <li class="nav-item dropdown  d-lg-flex d-none">
-                  <button type="button" class="btn btn-inverse-primary btn-sm">Product </button>
+                  <button type="button" class="btn btn-inverse-primary btn-sm">Switch To Selling </button>
                 </li>
-                <li class="nav-item dropdown d-lg-flex d-none">
+
+
+                <!-- <li class="nav-item dropdown d-lg-flex d-none">
                   <a class="dropdown-toggle show-dropdown-arrow btn btn-inverse-primary btn-sm" id="nreportDropdown" href="#" data-toggle="dropdown">
                   Reports
                   </a>
@@ -143,10 +145,12 @@
                         Exel
                       </a>
                   </div>
-                </li>
+                </li> -->
+
                 <li class="nav-item dropdown d-lg-flex d-none">
                   <button type="button" class="btn btn-inverse-primary btn-sm">Settings</button>
                 </li>
+
                 <li class="nav-item nav-profile dropdown">
                   <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                     <span class="nav-profile-name">Johnson</span>
@@ -157,6 +161,10 @@
                       <a class="dropdown-item">
                         <i class="mdi mdi-settings text-primary"></i>
                         Settings
+                      </a>
+                      <a class="dropdown-item">
+                        <i class="mdi mdi-settings text-primary"></i>
+                        Switch To Selling
                       </a>
                       <a class="dropdown-item">
                         <i class="mdi mdi-logout text-primary"></i>
@@ -181,13 +189,85 @@
       <nav class="bottom-navbar">
         <div class="container">
             <ul class="nav page-navigation">
+
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="registerPage.php">
+                  <i class="mdi mdi-library-plus menu-icon"></i>
+                  <span class="menu-title">Regiter Page</span>
+                </a>
+              </li>-->
+
+              
+
+
               <li class="nav-item">
+                  <a href="index.php" class="nav-link">
+                    <i class="mdi mdi-home-map-marker menu-icon"></i>
+                    <span class="menu-title">Home</span>
+                    <i class="menu-arrow"></i>
+                  </a>
+              </li>
+
+
+              <li class="nav-item">
+                  <a href="requestPage.php" class="nav-link">
+                    <i class="mdi mdi-library-plus menu-icon"></i>
+                    <span class="menu-title">Request</span>
+                    <i class="menu-arrow"></i>
+                  </a>
+              </li> 
+
+              <li class="nav-item">
+                  <a href="orderPage.php" class="nav-link">
+                    <i class="mdi mdi-chart-areaspline menu-icon"></i>
+                    <span class="menu-title">Order View</span>
+                    <i class="menu-arrow"></i>
+                  </a>
+              </li> 
+
+             
+              <li class="nav-item">
+                  <a href="messagesPage.php" class="nav-link">
+                    <i class="mdi mdi-message-text menu-icon"></i>
+                    <span class="menu-title">Messages</span>
+                    <i class="menu-arrow"></i>
+                  </a>
+              </li>
+
+              <li class="nav-item">
+                  <a href="notificationPage.php" class="nav-link">
+                    <i class="mdi mdi-bell menu-icon"></i>
+                    <span class="menu-title">Notifications</span>
+                    <i class="menu-arrow"></i>
+                  </a>
+              </li>
+
+              
+
+              <li class="nav-item">
+                  <a href="activityPage.php" class="nav-link">
+                    <i class="mdi mdi-flash menu-icon"></i>
+                    <span class="menu-title">Activity</span></a>
+              </li>
+
+              <li class="nav-item">
+                  <a href="accountPage.php" class="nav-link">
+                    <i class="mdi mdi-account-circle menu-icon"></i>
+                    <span class="menu-title">Account</span>
+                    <i class="menu-arrow"></i>
+                  </a>
+              </li>
+
+
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="index.html">
                   <i class="mdi mdi-file-document-box menu-icon"></i>
                   <span class="menu-title">Dashboard</span>
                 </a>
-              </li>
-              <li class="nav-item">
+              </li> -->
+
+
+              <!-- <li class="nav-item">
                   <a href="#" class="nav-link">
                     <i class="mdi mdi-cube-outline menu-icon"></i>
                     <span class="menu-title">UI Elements</span>
@@ -199,36 +279,28 @@
                           <li class="nav-item"><a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
                       </ul>
                   </div>
-              </li>
-              <li class="nav-item">
-                  <a href="pages/forms/basic_elements.html" class="nav-link">
-                    <i class="mdi mdi-chart-areaspline menu-icon"></i>
-                    <span class="menu-title">Form Elements</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-              </li>
-              <li class="nav-item">
+              </li> -->
+             
+              <!-- <li class="nav-item">
                   <a href="pages/charts/chartjs.html" class="nav-link">
                     <i class="mdi mdi-finance menu-icon"></i>
                     <span class="menu-title">Charts</span>
                     <i class="menu-arrow"></i>
                   </a>
-              </li>
-              <li class="nav-item">
+              </li> -->
+
+
+              <!-- <li class="nav-item">
                   <a href="pages/tables/basic-table.html" class="nav-link">
                     <i class="mdi mdi-grid menu-icon"></i>
                     <span class="menu-title">Tables</span>
                     <i class="menu-arrow"></i>
                   </a>
-              </li>
-              <li class="nav-item">
-                  <a href="pages/icons/mdi.html" class="nav-link">
-                    <i class="mdi mdi-emoticon menu-icon"></i>
-                    <span class="menu-title">Icons</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-              </li>
-              <li class="nav-item">
+              </li> -->
+
+             
+
+              <!-- <li class="nav-item">
                   <a href="#" class="nav-link">
                     <i class="mdi mdi-codepen menu-icon"></i>
                     <span class="menu-title">Sample Pages</span>
@@ -243,12 +315,11 @@
                           <li class="nav-item"><a class="nav-link" href="pages/samples/lock-screen.html">Lockscreen</a></li>
                       </ul>
                   </div>
-              </li>
-              <li class="nav-item">
-                  <a href="docs/documentation.html" class="nav-link">
-                    <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-                    <span class="menu-title">Documentation</span></a>
-              </li>
+              </li> -->
+
+              
+
+
             </ul>
         </div>
       </nav>

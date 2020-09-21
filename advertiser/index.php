@@ -451,7 +451,7 @@
 
 
 	<!-- Start MainNav -->
-		<?php include "../include/advertiserMainfooter.php" ?>
+		<?php include "include/advertiserMainfooter.php" ?>
 	<!-- End MainNav -->
 
 
@@ -461,7 +461,7 @@
 
 
 	<!-- Start MainNav -->
-	<?php include "../include/StyleJS.php" ?>
+	<?php include "include/StyleJS.php" ?>
 	<!-- End MainNav -->
 
     
