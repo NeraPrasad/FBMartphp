@@ -3,9 +3,12 @@
   <head>
 	<title>Home Page</title>
 
+	
+
 	 <!-- Start MainNav -->
 	 <?php include "include/StyleCSS.php" ?>
 	<!-- End MainNav -->
+
 
   </head>
 
@@ -13,7 +16,7 @@
     <div class="container-scroller">
 
     <!-- Start MainNav -->
-  <?php include "include/mainnav.php" ?>
+  <?php include "include/advertiserMainnav.php" ?>
 	<!-- End MainNav -->
 	
 
@@ -448,7 +451,7 @@
 
 
 	<!-- Start MainNav -->
-		<?php include "include/mainfooter.php" ?>
+		<?php include "../include/advertiserMainfooter.php" ?>
 	<!-- End MainNav -->
 
 
@@ -458,7 +461,7 @@
 
 
 	<!-- Start MainNav -->
-	<?php include "include/StyleJS.php" ?>
+	<?php include "../include/StyleJS.php" ?>
 	<!-- End MainNav -->
 
     
