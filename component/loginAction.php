@@ -1,7 +1,7 @@
 <?php 
 
     require_once("database.php");
-
+    session_start();
 
 
     if(isset($_REQUEST['submitlog']))
@@ -18,7 +18,7 @@
                     if(password_verify($pass, $row["pass"]))  
                     {     
                         $_SESSION["email"] = $row["email"];
-                        $_SESSION["name"] = $row["name"];
+                        $_SESSION["username"] = $row["username"];
                         $_SESSION["phone"] = $row["phone"];
                         $_SESSION["id"] = $row["id"];
                         $_SESSION["user_id"] = $row["user_id"];

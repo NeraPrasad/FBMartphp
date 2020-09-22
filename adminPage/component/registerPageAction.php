@@ -1,8 +1,7 @@
 <?php 
 
     require_once("../../component/database.php");
-    $msg = "";
-    $msg_success = "";
+  
 
     if(isset($_REQUEST['submitreg']))
     {

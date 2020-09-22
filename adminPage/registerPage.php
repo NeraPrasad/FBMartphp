@@ -9,6 +9,7 @@
 
 	 <!-- Start MainNav -->
 	 <?php include "./include/StyleCSS.php" ?>
+	 <?php include "./style/orderPagestyle.php" ?>
 	<!-- End MainNav -->
 
 
@@ -21,30 +22,43 @@
   <?php include "include/advertiserMainnav.php" ?>
 	<!-- End MainNav -->
 	
+	<?php 
+			$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+				if(strpos($fullUrl, "insert=success") == true)
+					{
+					echo "<div class='alert alert-success' >
+                  <div class='container'>
+                      <div class='alert-icon'>
+                          <i class='material-icons'>check</i>
+                      </div>
+                      <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                          <span aria-hidden='true'><i class='material-icons'>clear</i></span>
+                      </button>
+                      <b>New Page Register Success:</b> Now you can see your register page <a href='viewPage.php' style='color:#fff;'>Click</a>
+                  </div>
+              	</div>";
+                  }
+                  elseif(strpos($fullUrl, "insert=successs") == true)
+                  {
+                    echo "<h2 class='text-dark font-weight-bold mb-2'>Page Register Successfull</h2>";
+                  }
+		?>
+	  
 
     <!-- partial -->
 		<div class="container-fluid page-body-wrapper">
 			<div class="main-panel">
 				<div class="content-wrapper">
 					<div class="row">
-
 						<div class="col-sm-6 mb-4 mb-xl-0">
 							<div class="d-lg-flex align-items-center">
 								<div>
-								<?php 
-									$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-									if(strpos($fullUrl, "insert=success") == true)
-									{
-									echo "<h2 class='text-dark font-weight-bold mb-2'>Page Register Successfull</h2>";
+                
 									
-									}
-								?>
-									<h6 class="font-weight-normal mb-2">View Your Register <a href="viewPage.php">Pages</a></h6>
 								</div>
-	
 							</div>
-						</div>
+            			</div>
                         
                         <!-- Right Button -->
 						<div class="col-sm-6">
@@ -68,9 +82,8 @@
 										</button>
 								</div>
 							</div>
-                        </div>
-                        
-                    </div>
+            </div>                
+        </div>
                     
 					<div class="row mt-4">
 
@@ -118,7 +131,7 @@
 													<div class="form-check form-check-info">
 														<div class="form-check-inline">
 															<label class="form-check-label">
-																<input type="checkbox" class="form-check-input" name="poli_cat[]"  value="<?php echo $row['catName']; ?>"><?php echo $row['catName']; ?>
+																<input type="checkbox" class="form-check-input" name="poli_cat[]"  value="<?php echo $row['catShort']; ?>"><?php echo $row['catName']; ?>
 																
 															</label><span id="PoliCatMsg"></span>
 														</div>
@@ -249,7 +262,7 @@
 
 	<!-- Start MainNav -->
 	<?php include "./include/StyleJS.php" ?>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	
 	<!-- End MainNav -->
 
     

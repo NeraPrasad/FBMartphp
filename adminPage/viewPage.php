@@ -9,19 +9,43 @@
    <?php include "./include/StyleCSS.php" ?>
    <?php include "./style/orderPagestyle.php" ?>
 	<!-- End MainNav -->
-
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-	
-
+  
+    
+</head>
   </head>
 
   <body>
+
+  
     <div class="container-scroller">
 
     <!-- Start MainNav -->
   <?php include "include/advertiserMainnav.php" ?>
 	<!-- End MainNav -->
-	
+
+                <?php 
+									$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+									if(strpos($fullUrl, "delete=success") == true)
+									{
+									echo "<div class='alert alert-success'>
+                  <div class='container'>
+                      <div class='alert-icon'>
+                          <i class='material-icons'>check</i>
+                      </div>
+                      <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                          <span aria-hidden='true'><i class='material-icons'>clear</i></span>
+                      </button>
+                      <b>Page Delete Success:</b> Add your new page <a href='viewPage.php' style='color:#fff;'>Click</a> 
+                  </div>
+                </div>";
+                  }
+                  elseif(strpos($fullUrl, "insert=success") == true)
+                  {
+                    echo "<h2 class='text-dark font-weight-bold mb-2'>Page Register Successfull</h2>";
+                  }
+								?>
+	  
 
     <!-- partial -->
 		<div class="container-fluid page-body-wrapper">
@@ -31,8 +55,8 @@
 						<div class="col-sm-6 mb-4 mb-xl-0">
 							<div class="d-lg-flex align-items-center">
 								<div>
-									<h3 class="text-dark font-weight-bold mb-2">Hi, welcome back!</h3>
-									<h6 class="font-weight-normal mb-2">Last login was 23 hours ago. View details</h6>
+                
+									
 								</div>
 							</div>
             </div>
@@ -62,16 +86,20 @@
             </div>                
         </div>
                     
-<div class="container">
+<div class="container mt-4">
 <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title text-uppercase mb-0">Manage Users</h5>
+                <h5 class="card-title text-uppercase mb-0">Manage Pages</h5>
             </div>
             <div class="table-responsive">
-                <table class="table no-wrap user-table mb-0">
+                <?php 
+                    require '../component/database.php';
+                    $result = $conn-> query("SELECT * FROM fb_page") or die ($conn->error);
+                 ?>
 
+                <table class="table no-wrap user-table mb-0">
                   <thead>
                     <tr>
                       <th scope="col" class="border-0 text-uppercase font-medium pl-4">No</th>
@@ -84,43 +112,47 @@
                       <th scope="col" class="border-0 text-uppercase font-medium">Manage</th>
                     </tr>
                   </thead>
-
                   <tbody>
 
+                 <?php 
+                    while($row = $result->fetch_assoc()):
+                 ?>
 
                     <tr>
                       <td class="pl-4">1</td>
                       <td>
-                          <h5 class="font-medium mb-0">Daniel Kristeen</h5>
-                          <span class="text-muted">Texas, Unitedd states</span>
+                          <h5 class="font-medium mb-0"><?php echo $row['acc_type'];?></h5>
+                          <!-- <span class="text-muted">Texas, Unitedd states</span> -->
                       </td>
                       <td>
-                          <span class="text-muted">Visual Designer</span><br>
-                          <span class="text-muted">Past : teacher</span>
+                          <span class="text-muted"><?php echo $row['poli_cat'];?></span><br>
+                         
                       </td>
                       <td>
-                          <span class="text-muted">daniel@website.com</span><br>
-                          <span class="text-muted">999 - 444 - 555</span>
+                          <span class="text-muted"><?php echo $row['acc_cat'];?></span><br>
+                          
                       </td>
                       <td>
-                          <span class="text-muted">15 Mar 1988</span><br>
-                          <span class="text-muted">10: 55 AM</span>
+                          <span class="text-muted">  <a href="<?php echo $row['url']; ?>" target="_blank"  class="fa fa-facebook"></a> </span><br>
+                          
                       </td>
                        <td>
-                          <span class="text-muted">15 Mar 1988</span><br>
-                          <span class="text-muted">10: 55 AM</span>
+                          <span class="text-muted">Rs. <?php echo $row['rate_post'];?></span><br>
+                        
                       </td>
                       <td>
-                          <span class="text-muted">15 Mar 1988</span><br>
-                          <span class="text-muted">10: 55 AM</span>
+                          <span class="text-muted"><?php echo $row['insert_date'];?></span><br>
+            
                       </td>
                       <td>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
+                        <a href="category_Edit.php?editid=<?php echo $row['id']; ?>" name="edit" id="btn" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"  onclick="return validate();"><i class="fa fa-edit"></i></a>
+                        
+                        <a href="component/viewPageAction.php?delete=<?php echo $row['id']; ?>" name="delete" id="btn" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" onclick="return buttonevent();"><i class="fa fa-trash"></i></a>
                         
                       </td>
                     </tr>
 
+              <?php endwhile; ?>
 
 
                   </tbody>
@@ -132,7 +164,6 @@
 </div>
 
 				</div>
-
 	<!-- Start MainNav -->
 		<?php include "./include/advertiserMainfooter.php" ?>
 	<!-- End MainNav -->
@@ -150,6 +181,32 @@
 	<?php include "./include/StyleJS.php" ?>
 	<!-- End MainNav -->
 
-    
+<script>
+$(document).ready(function() {
+    $('body').bootstrapMaterialDesign();
+});
+</script>
+
+<script>
+
+ function buttonevent(){
+  swal({
+  title: "Are you sure?",
+  text: "Once deleted, you will not be able to recover this imaginary file!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    swal("Poof! Your imaginary file has been deleted!", {
+      icon: "success",
+    });
+  } else {
+    swal("Your imaginary file is safe!");
+  }
+});
+ }
+ </script>
   </body>
 </html>

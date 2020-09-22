@@ -6,3 +6,4 @@
 	<script src="../vendors/justgage/raphael-2.1.4.min.js"></script>
 	<script src="../vendors/justgage/justgage.js"></script>
     <script src="../js/dashboard.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

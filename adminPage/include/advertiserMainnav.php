@@ -135,6 +135,22 @@
                 </li>
 
                 <li class="nav-item nav-profile dropdown">
+
+
+
+                <?php  if( isset($_SESSION['email']) && !empty($_SESSION['email']) )
+                  {
+                  ?>
+                  <li><a href="component/model/function_LoginOut.php" id="btn_logout" class="btn btn-primary ">Login Out</a></li>
+                  
+                  <li><a href="User_Profile.php" class="btn btn-primary "><?php echo $_SESSION['username'] ?> </a></li>
+                  <?php }
+                  else{ ?>
+                 
+                <?php } ?>
+
+
+
                   <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                     <span class="nav-profile-name">Johnson</span>
                     <span class="online-status"></span>
@@ -185,7 +201,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="registerPage.php">
                   <i class="mdi mdi-library-plus menu-icon"></i>
-                  <span class="menu-title">Regiter Page</span>
+                  <span class="menu-title">Register Page</span>
                 </a>
               </li>
 
