@@ -35,7 +35,7 @@
 									
 									}
 								?>
-									<h6 class="font-weight-normal mb-2">Last login was 23 hours ago. View details</h6>
+									<!-- <h6 class="font-weight-normal mb-2">Last login was 23 hours ago. View details</h6> -->
 								</div>
 								<!-- <div class="ml-lg-5 d-lg-flex d-none">
 										<button type="button" class="btn bg-white btn-icon">

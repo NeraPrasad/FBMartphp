@@ -116,7 +116,7 @@
 
             <!-- Logo -->
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.html"><h2 style="font-weight: bold;color: #51e1c3;">Facebook</h2></a>
+                <a class="navbar-brand brand-logo" href="index.html"><h2 style="font-weight: bold;color: #51e1c3;">Facebook Advertiser</h2></a>
                 <a class="navbar-brand brand-logo-mini" href="index.html"><h2 style="font-weight: bold;color: #51e1c3;">FB</h2></a>
             </div>
 
@@ -126,26 +126,10 @@
 
 
                 <li class="nav-item dropdown  d-lg-flex d-none">
-                  <button type="button" class="btn btn-inverse-primary btn-sm">Switch To Selling </button>
+                  <button type="button" onclick="location.href='../adminPage/index.php'" class="btn btn-inverse-primary btn-sm">Switch To Page Admin </button>
                 </li>
 
 
-                <!-- <li class="nav-item dropdown d-lg-flex d-none">
-                  <a class="dropdown-toggle show-dropdown-arrow btn btn-inverse-primary btn-sm" id="nreportDropdown" href="#" data-toggle="dropdown">
-                  Reports
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="nreportDropdown">
-                      <p class="mb-0 font-weight-medium float-left dropdown-header">Reports</p>
-                      <a class="dropdown-item">
-                        <i class="mdi mdi-file-pdf text-primary"></i>
-                        Pdf
-                      </a>
-                      <a class="dropdown-item">
-                        <i class="mdi mdi-file-excel text-primary"></i>
-                        Exel
-                      </a>
-                  </div>
-                </li> -->
 
                 <li class="nav-item dropdown d-lg-flex d-none">
                   <button type="button" class="btn btn-inverse-primary btn-sm">Settings</button>
@@ -162,7 +146,7 @@
                         <i class="mdi mdi-settings text-primary"></i>
                         Settings
                       </a>
-                      <a class="dropdown-item">
+                      <a class="dropdown-item" href="../../adminPage/index.php">
                         <i class="mdi mdi-settings text-primary"></i>
                         Switch To Selling
                       </a>
@@ -189,13 +173,6 @@
       <nav class="bottom-navbar">
         <div class="container">
             <ul class="nav page-navigation">
-
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="registerPage.php">
-                  <i class="mdi mdi-library-plus menu-icon"></i>
-                  <span class="menu-title">Regiter Page</span>
-                </a>
-              </li>-->
 
               
 
@@ -257,67 +234,6 @@
                     <i class="menu-arrow"></i>
                   </a>
               </li>
-
-
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                  <i class="mdi mdi-file-document-box menu-icon"></i>
-                  <span class="menu-title">Dashboard</span>
-                </a>
-              </li> -->
-
-
-              <!-- <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="mdi mdi-cube-outline menu-icon"></i>
-                    <span class="menu-title">UI Elements</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-                  <div class="submenu">
-                      <ul>
-                          <li class="nav-item"><a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                          <li class="nav-item"><a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-                      </ul>
-                  </div>
-              </li> -->
-             
-              <!-- <li class="nav-item">
-                  <a href="pages/charts/chartjs.html" class="nav-link">
-                    <i class="mdi mdi-finance menu-icon"></i>
-                    <span class="menu-title">Charts</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-              </li> -->
-
-
-              <!-- <li class="nav-item">
-                  <a href="pages/tables/basic-table.html" class="nav-link">
-                    <i class="mdi mdi-grid menu-icon"></i>
-                    <span class="menu-title">Tables</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-              </li> -->
-
-             
-
-              <!-- <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="mdi mdi-codepen menu-icon"></i>
-                    <span class="menu-title">Sample Pages</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-                  <div class="submenu">
-                      <ul class="submenu-item">
-                          <li class="nav-item"><a class="nav-link" href="pages/samples/login.html">Login</a></li>
-                          <li class="nav-item"><a class="nav-link" href="pages/samples/login-2.html">Login 2</a></li>
-                          <li class="nav-item"><a class="nav-link" href="pages/samples/register.html">Register</a></li>
-                          <li class="nav-item"><a class="nav-link" href="pages/samples/register-2.html">Register 2</a></li>
-                          <li class="nav-item"><a class="nav-link" href="pages/samples/lock-screen.html">Lockscreen</a></li>
-                      </ul>
-                  </div>
-              </li> -->
-
-              
 
 
             </ul>
