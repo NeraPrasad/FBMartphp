@@ -72,3 +72,10 @@
     background-color: #a72abd;
     color: #fff;
 }
+
+@media screen and (max-width: 300px) {
+    .alert.alert-success {
+        margin-top: 200px;
+        
+    }
+  }

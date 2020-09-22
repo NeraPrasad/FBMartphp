@@ -10,7 +10,93 @@
    <?php include "./style/orderPagestyle.php" ?>
 	<!-- End MainNav -->
   
-    
+  <style>
+
+
+/* Set a style for all buttons */
+
+.deletebtn{
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.deletebtn:hover {
+  opacity:1;
+}
+
+.cancelbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.cancelbtn:hover {
+  opacity:1;
+}
+
+/* Float cancel and delete buttons and add an equal width */
+.cancelbtn, .deletebtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add a color to the cancel button */
+.cancelbtn {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Add a color to the delete button */
+.deletebtn {
+  background-color: #f44336;
+}
+
+/* Add padding and center-align text to the container */
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 10px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+
+
+/* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .deletebtn {
+     width: 100%;
+  }
+}
+</style>
 </head>
   </head>
 
@@ -146,11 +232,23 @@
                       </td>
                       <td>
                         <a href="category_Edit.php?editid=<?php echo $row['id']; ?>" name="edit" id="btn" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"  onclick="return validate();"><i class="fa fa-edit"></i></a>
-                        
-                        <a href="component/viewPageAction.php?delete=<?php echo $row['id']; ?>" name="delete" id="btn" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2" onclick="return buttonevent();"><i class="fa fa-trash"></i></a>
-                        
+                        <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2 btn-del" ><i class="fa fa-trash"></i></button>
                       </td>
                     </tr>
+
+                    <div id="id01" class="modal">
+                   
+                    <form class="modal-content" action="/action_page.php">
+                      <div class="container" style="text-align: center;">
+                        <h1>Delete Account</h1>
+                        <p>Are you sure you want to delete your account?</p>
+                        <div class="clearfix">
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                        <a href="component/viewPageAction.php?delete=<?php echo $row['id']; ?>" name="delete" id="btn" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</a> 
+                        </div>
+                      </div>
+                    </form>
+                  </div>
 
               <?php endwhile; ?>
 
@@ -162,6 +260,9 @@
     </div>
 </div>
 </div>
+
+
+
 
 				</div>
 	<!-- Start MainNav -->
@@ -189,24 +290,13 @@ $(document).ready(function() {
 
 <script>
 
- function buttonevent(){
-  swal({
-  title: "Are you sure?",
-  text: "Once deleted, you will not be able to recover this imaginary file!",
-  icon: "warning",
-  buttons: true,
-  dangerMode: true,
-})
-.then((willDelete) => {
-  if (willDelete) {
-    swal("Poof! Your imaginary file has been deleted!", {
-      icon: "success",
-    });
-  } else {
-    swal("Your imaginary file is safe!");
+var modal = document.getElementById('id01');
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
-});
- }
- </script>
+}
+</script>
   </body>
 </html>
