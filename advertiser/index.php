@@ -3,8 +3,6 @@
   <head>
 	<title>Home Page</title>
 
-	
-
 	 <!-- Start MainNav -->
 	 <?php include "include/StyleCSS.php" ?>
 	<!-- End MainNav -->
@@ -28,17 +26,25 @@
 						<div class="col-sm-6 mb-4 mb-xl-0">
 							<div class="d-lg-flex align-items-center">
 								<div>
-									<h3 class="text-dark font-weight-bold mb-2">Hi, welcome back!</h3>
+								<?php 
+									$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+									if(strpos($fullUrl, "signin=success") == true)
+									{
+									echo "<h2 class='text-dark font-weight-bold mb-2'>Hello!</h2>"  ;
+									
+									}
+								?>
 									<h6 class="font-weight-normal mb-2">Last login was 23 hours ago. View details</h6>
 								</div>
-								<div class="ml-lg-5 d-lg-flex d-none">
+								<!-- <div class="ml-lg-5 d-lg-flex d-none">
 										<button type="button" class="btn bg-white btn-icon">
 											<i class="mdi mdi-view-grid text-success"></i>
 									</button>
 										<button type="button" class="btn bg-white btn-icon ml-2">
 											<i class="mdi mdi-format-list-bulleted font-weight-bold text-primary"></i>
 										</button>
-								</div>
+								</div> -->
 							</div>
 						</div>
 						<div class="col-sm-6">
