@@ -17,11 +17,18 @@
         <div class="row flex-grow">
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
-              <div class="brand-logo">
-                <img src="images/logo.svg" alt="logo">
-              </div>
-              <h4>Welcome back!</h4>
-              <h6 class="font-weight-light">Happy to see you again!</h6>
+            <a class="navbar-brand brand-logo" href="index.html"><h2 style="font-weight: bold;color: #51e1c3;">Facebook</h2></a>
+              <?php 
+                $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+                if(strpos($fullUrl, "signup=success") == true)
+                {
+             
+                  echo "<h1>Register Successfull</h1>";
+                  echo "<h3>Now You Can Login</h3>";
+                }
+              ?>
+              <h6 class="font-weight-light">Happy to see you!</h6>
               <form class="pt-3">
                 <div class="form-group">
                   <label for="exampleInputEmail">Username</label>
@@ -66,7 +73,7 @@
                   </button>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Don't have an account? <a href="register-2.html" class="text-primary">Create</a>
+                  Don't have an account? <a href="register.php" class="text-primary">Create</a>
                 </div>
               </form>
             </div>

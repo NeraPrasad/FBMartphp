@@ -155,7 +155,7 @@
                   <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                     <span class="nav-profile-name">Johnson</span>
                     <span class="online-status"></span>
-                    <img src="images/faces/face27.jpg" alt="profile"/>
+                    <img src="../images/faces/face27.jpg" alt="profile"/>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                       <a class="dropdown-item">
@@ -220,9 +220,9 @@
               </li>  -->
 
               <li class="nav-item">
-                  <a href="orderPage.php" class="nav-link">
+                  <a href="viewPage.php" class="nav-link">
                     <i class="mdi mdi-chart-areaspline menu-icon"></i>
-                    <span class="menu-title">Order View</span>
+                    <span class="menu-title">Page View</span>
                     <i class="menu-arrow"></i>
                   </a>
               </li> 
