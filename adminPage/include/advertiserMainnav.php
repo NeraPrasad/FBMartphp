@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <div class="horizontal-menu">
       <nav class="navbar top-navbar col-lg-12 col-12 p-0">
         <div class="container-fluid">
@@ -126,8 +129,9 @@
 
 
                 <li class="nav-item dropdown  d-lg-flex d-none">
-                  <button type="button" onclick="location.href='../advertiser/index.php'" class="btn btn-inverse-primary btn-sm">Switch To Advertiser </button>
+                  <button type="button" onclick="location.href='../advertiser/index.php'" class="btn btn-inverse-primary btn-sm">Switch To Page Admin </button>
                 </li>
+
 
 
                 <li class="nav-item dropdown d-lg-flex d-none">
@@ -135,24 +139,8 @@
                 </li>
 
                 <li class="nav-item nav-profile dropdown">
-
-
-
-                <?php  if( isset($_SESSION['email']) && !empty($_SESSION['email']) )
-                  {
-                  ?>
-                  <li><a href="component/model/function_LoginOut.php" id="btn_logout" class="btn btn-primary ">Login Out</a></li>
-                  
-                  <li><a href="User_Profile.php" class="btn btn-primary "><?php echo $_SESSION['username'] ?> </a></li>
-                  <?php }
-                  else{ ?>
-                 
-                <?php } ?>
-
-
-
                   <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                    <span class="nav-profile-name">Johnson</span>
+                    <span class="nav-profile-name"><?php echo $_SESSION['username'] ?></span>
                     <span class="online-status"></span>
                     <img src="../images/faces/face27.jpg" alt="profile"/>
                   </a>
@@ -161,7 +149,7 @@
                         <i class="mdi mdi-settings text-primary"></i>
                         Settings
                       </a>
-                      <a class="dropdown-item">
+                      <a class="dropdown-item" href="../advertiser/index.php">
                         <i class="mdi mdi-settings text-primary"></i>
                         Switch To Selling
                       </a>
@@ -189,7 +177,7 @@
         <div class="container">
             <ul class="nav page-navigation">
 
-
+          
             <li class="nav-item">
                   <a href="index.php" class="nav-link">
                     <i class="mdi mdi-home-map-marker menu-icon"></i>
@@ -216,13 +204,13 @@
               </li> 
 
              
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                   <a href="messagesPage.php" class="nav-link">
                     <i class="mdi mdi-message-text menu-icon"></i>
                     <span class="menu-title">Messages</span>
                     <i class="menu-arrow"></i>
                   </a>
-              </li>
+              </li> -->
 
               <li class="nav-item">
                   <a href="notificationPage.php" class="nav-link">

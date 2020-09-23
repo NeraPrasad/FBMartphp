@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <div class="horizontal-menu">
       <nav class="navbar top-navbar col-lg-12 col-12 p-0">
         <div class="container-fluid">
@@ -61,7 +64,7 @@
                   <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
                   <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
-                        <img src="../../images/faces/face4.jpg" alt="image" class="profile-pic">
+                        <img src="../images/faces/face4.jpg" alt="image" class="profile-pic">
                     </div>
                     <div class="preview-item-content flex-grow">
                         <h6 class="preview-subject ellipsis font-weight-normal">David Grey
@@ -73,7 +76,7 @@
                   </a>
                   <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
-                        <img src="../../images/faces/face2.jpg" alt="image" class="profile-pic">
+                        <img src="../images/faces/face2.jpg" alt="image" class="profile-pic">
                     </div>
                     <div class="preview-item-content flex-grow">
                         <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
@@ -85,7 +88,7 @@
                   </a>
                   <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
-                        <img src="../../images/faces/face3.jpg" alt="image" class="profile-pic">
+                        <img src="../images/faces/face3.jpg" alt="image" class="profile-pic">
                     </div>
                     <div class="preview-item-content flex-grow">
                         <h6 class="preview-subject ellipsis font-weight-normal"> Johnson
@@ -116,8 +119,8 @@
 
             <!-- Logo -->
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.html"><h2 style="font-weight: bold;color: #51e1c3;">Facebook Advertiser</h2></a>
-                <a class="navbar-brand brand-logo-mini" href="index.html"><h2 style="font-weight: bold;color: #51e1c3;">FB</h2></a>
+                <a class="navbar-brand brand-logo" href="../index.php"><h2 style="font-weight: bold;color: #51e1c3;">Facebook Advertiser</h2></a>
+                <a class="navbar-brand brand-logo-mini" href="../index.php"><h2 style="font-weight: bold;color: #51e1c3;">FB</h2></a>
             </div>
 
 
@@ -126,7 +129,7 @@
 
 
                 <li class="nav-item dropdown  d-lg-flex d-none">
-                  <button type="button" onclick="location.href='../adminPage/index.php'" class="btn btn-inverse-primary btn-sm">Switch To Page Admin </button>
+                  <button type="button" onclick="location.href='../adminPage/'" class="btn btn-inverse-primary btn-sm">Switch To Page Admin </button>
                 </li>
 
 
@@ -137,16 +140,16 @@
 
                 <li class="nav-item nav-profile dropdown">
                   <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                    <span class="nav-profile-name">Johnson</span>
+                    <span class="nav-profile-name"><?php echo $_SESSION['username'] ?></span>
                     <span class="online-status"></span>
-                    <img src="images/faces/face27.jpg" alt="profile"/>
+                    <img src="../images/faces/face27.jpg" alt="profile"/>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                       <a class="dropdown-item">
                         <i class="mdi mdi-settings text-primary"></i>
                         Settings
                       </a>
-                      <a class="dropdown-item" href="../../adminPage/index.php">
+                      <a class="dropdown-item" href="../../adminPage/">
                         <i class="mdi mdi-settings text-primary"></i>
                         Switch To Selling
                       </a>
@@ -157,6 +160,7 @@
                   </div>
                 </li>
             </ul>
+            
 
 
 
@@ -203,13 +207,13 @@
               </li> 
 
              
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                   <a href="messagesPage.php" class="nav-link">
                     <i class="mdi mdi-message-text menu-icon"></i>
                     <span class="menu-title">Messages</span>
                     <i class="menu-arrow"></i>
                   </a>
-              </li>
+              </li> -->
 
               <li class="nav-item">
                   <a href="notificationPage.php" class="nav-link">

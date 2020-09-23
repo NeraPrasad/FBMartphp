@@ -105,21 +105,6 @@
   border-radius: 65px;
 }
 
-.career-title {
-  background-color: #4e63d7;
-  color: #fff;
-  padding: 15px;
-  text-align: center;
-  border-radius: 10px 10px 0 0;
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(78, 99, 215, 0.9)), to(#5a85dd));
-  background-image: linear-gradient(to right, rgba(78, 99, 215, 0.9) 0%, #5a85dd 100%);
-}
-
-.job-overview {
-  -webkit-box-shadow: 0 0 35px 0 rgba(130, 130, 130, 0.2);
-          box-shadow: 0 0 35px 0 rgba(130, 130, 130, 0.2);
-  border-radius: 10px;
-}
 
 @media (min-width: 992px) {
   .job-overview {

@@ -3,15 +3,12 @@
   <head>
 	<title>Message Page</title>
 
-	
-
 	 <!-- Start MainNav -->
 	 <?php include "./include/StyleCSS.php" ?>
 	 <?php include "./style/messagepagestyle.php" ?>
 	<!-- End MainNav -->
 
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.8-fix/jquery.nicescroll.min.js"></script>
 
   </head>
