@@ -35,8 +35,8 @@
             {
                 echo    "ERROR: Could not prepare query: $sql. " . mysqli_error($conn);
             }
-            mysqli_stmt_close($stmt);
-        
-                  
+            mysqli_stmt_close($stmt);        
     }
+
+    
 ?>

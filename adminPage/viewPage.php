@@ -6,97 +6,12 @@
 	
 
 	 <!-- Start MainNav -->
-   <?php include "./include/StyleCSS.php" ?>
+   <?php include "./include/StyleCSS.php"?>
+   
    <?php include "./style/orderPagestyle.php" ?>
 	<!-- End MainNav -->
   
-  <style>
-
-
-/* Set a style for all buttons */
-
-.deletebtn{
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-
-.deletebtn:hover {
-  opacity:1;
-}
-
-.cancelbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-
-.cancelbtn:hover {
-  opacity:1;
-}
-
-/* Float cancel and delete buttons and add an equal width */
-.cancelbtn, .deletebtn {
-  float: left;
-  width: 50%;
-}
-
-/* Add a color to the cancel button */
-.cancelbtn {
-  background-color: #ccc;
-  color: black;
-}
-
-/* Add a color to the delete button */
-.deletebtn {
-  background-color: #f44336;
-}
-
-/* Add padding and center-align text to the container */
-
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: #474e5d;
-  padding-top: 10px;
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* Style the horizontal ruler */
-
-
-/* Change styles for cancel button and delete button on extra small screens */
-@media screen and (max-width: 300px) {
-  .cancelbtn, .deletebtn {
-     width: 100%;
-  }
-}
-</style>
+  <link rel="stylesheet" href="../css/notificationBar.css">
 </head>
   </head>
 
@@ -122,13 +37,23 @@
                       <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
                           <span aria-hidden='true'><i class='material-icons'>clear</i></span>
                       </button>
-                      <b>Page Delete Success:</b> Add your new page <a href='viewPage.php' style='color:#fff;'>Click</a> 
+                      <b>Page Delete Success:</b> You Can Add New Page <a href='viewPage.php' style='color:#fff;'>Click</a> 
                   </div>
                 </div>";
                   }
-                  elseif(strpos($fullUrl, "insert=success") == true)
+                  elseif(strpos($fullUrl, "update=success") == true)
                   {
-                    echo "<h2 class='text-dark font-weight-bold mb-2'>Page Register Successfull</h2>";
+                    echo "<div class='alert alert-success'>
+                  <div class='container'>
+                      <div class='alert-icon'>
+                          <i class='material-icons'>check</i>
+                      </div>
+                      <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                          <span aria-hidden='true'><i class='material-icons'>clear</i></span>
+                      </button>
+                      <b>Page Update Success:</b> You Can Add New Page <a href='viewPage.php' style='color:#fff;'>Click</a> 
+                  </div>
+                </div>";
                   }
 								?>
 	  
@@ -231,7 +156,7 @@
             
                       </td>
                       <td>
-                        <a href="category_Edit.php?editid=<?php echo $row['id']; ?>" name="edit" id="btn" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"  onclick="return validate();"><i class="fa fa-edit"></i></a>
+                        <a href="viewPageEdit?editid=<?php echo $row['id']; ?>" name="edit" id="btn" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"  onclick="return validate();"><i class="fa fa-edit"></i></a>
                         <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2 btn-del" ><i class="fa fa-trash"></i></button>
                       </td>
                     </tr>
