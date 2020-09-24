@@ -126,7 +126,7 @@
                                     </div>
                                 </div>
                                 <div class="job-right my-4 flex-shrink-0">
-                                <a href="index.php?id=<?php echo $row['id']; ?>" name="submit" class="btn d-block w-100 d-sm-inline-block btn-custom">Select</a>
+                                <a href="requestPage?id=<?php echo $row['id']; ?>" name="submit" class="btn d-block w-100 d-sm-inline-block btn-custom">Select</a>
                                 </div>
                             </div>
 
