@@ -1,3 +1,12 @@
+<?php
+
+if(isset($_POST['submit'])){
+	$selectacc_arr = $_POST['selectacc'];
+    $selectarr =  implode(", ", $selectacc_arr);
+    echo $selectarr;
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

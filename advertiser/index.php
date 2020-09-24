@@ -1,11 +1,4 @@
-<?php
 
-if(isset($_POST['submit'])){
-	$arr=$_POST['education'];
-	echo implode(", ",$arr);
-	echo "<br/><br/>";
-}
-?>
 
 
 
@@ -77,11 +70,25 @@ if(isset($_POST['submit'])){
                 <div class="col-lg-10 mx-auto">
                     <div class="career-search mb-60">
                         <div class="filter-result">
-                            <p class="mb-30 ff-montserrat">Total Job Openings : 89</p>
-                            <form method="post">
-                            <?php
+                        <?php
+                   
+                            require '../component/database.php';
+                            $query = "SELECT id FROM fb_page ORDER BY id";
+                            $query_run = mysqli_query($conn , $query);
+                            $row2 = mysqli_num_rows($query_run);
+                            echo '<p class="mb-30 ff-montserrat">'.$row2.' : Results for Page</p>'
+                            ?>
+                             
+                       
+                            
+                            <form method="post" action="requestPage.php">
+
+
+                            <input type="submit"  class="btn btn-info mb-3" name="submit"/>
+                                
+                                <?php
                                 require '../component/database.php';
-                                $sql = "SELECT * FROM fb_page LIMIT 0, 6";
+                                $sql = "SELECT * FROM fb_page ";
                                 $result = $conn->query($sql);
 
                                 if ($result->num_rows > 0) {
@@ -90,15 +97,13 @@ if(isset($_POST['submit'])){
                                 { 
                                 ?>
 
-                                
                                 <div class="job-box d-md-flex align-items-center justify-content-between mb-30" style="background-color:#fff;">
                                 <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
 								<div class="form-check form-check-info">
                                     <div class="form-check-inline">
                                         <label class="form-check-label">
-                                            <input type="checkbox" class="form-check-input" name="education[]"  value="<?php echo $row['id']; ?>"><?php echo $row['id']; ?>
-                                            
-                                        </label><span id="PoliCatMsg"></span>
+                                            <input type="checkbox" class="form-check-input" name="selectacc[]"  value="<?php echo $row['id']; ?>">
+                                        </label>
                                     </div>
                                 </div>
 
@@ -121,7 +126,7 @@ if(isset($_POST['submit'])){
                                     </div>
                                 </div>
                                 <div class="job-right my-4 flex-shrink-0">
-                   
+                                <a href="index.php?id=<?php echo $row['id']; ?>" name="submit" class="btn d-block w-100 d-sm-inline-block btn-custom">Select</a>
                                 </div>
                             </div>
 
@@ -133,7 +138,7 @@ if(isset($_POST['submit'])){
                                 }
                                 $conn->close();
                             ?>
-                            <input type="submit"  class="btn btn-info mr-2" name="submit"/>
+                           
                             </form>
 
 
