@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,6 +20,13 @@
   <?php include "./style/accountpagestyle.php" ?>
 	<!-- End MainNav -->
 	
+<?php
+  require '../component/database.php';
+  $email = $_SESSION['email'];
+  $query = mysqli_query($conn,"SELECT * from fb_user where email='$email'");
+  $row = mysqli_fetch_array($query);
+?>
+
 
     <!-- partial -->
 		<div class="container-fluid page-body-wrapper">
@@ -56,6 +67,7 @@
 
 					<div class="content col-sm-12">
                             <div class="container">
+
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <!-- meta -->
@@ -63,14 +75,13 @@
                                             <div class="row">
                                                 <div class="col-sm-6"><span class="float-left mr-3"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="thumb-lg rounded-circle"></span>
                                                     <div class="media-body text-white">
-                                                        <h4 class="mt-1 mb-1 font-18">Michael A. Franklin</h4>
-                                                        <p class="font-13 text-light">User Experience Specialist</p>
-                                                        <p class="text-light mb-0">California, United States</p>
+                                                        <h4 class="mt-1 mb-1 font-18"><?php echo $row["username"];?></h4>
+                                                        <p class="font-13 text-white"><?php echo $row["email"];?></p>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="text-right">
-                                                        <button type="button" class="btn btn-dark waves-effect"><i class="mdi mdi-account-settings-variant mr-1"></i> Edit Profile</button>
+                                                        <a href="" class="btn btn-dark waves-effect">Edit Profile</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -78,6 +89,8 @@
                                         <!--/ meta -->
                                     </div>
                                 </div>
+
+
                                 <!-- end row -->
                                 <div class="row">
                                     <div class="col-xl-4">
@@ -282,6 +295,7 @@
                                     </div>
                                     <!-- end col -->
                                 </div>
+                                
                                 <!-- end row -->
                             </div>
                             <!-- container -->

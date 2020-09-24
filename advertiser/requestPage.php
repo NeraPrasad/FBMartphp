@@ -18,7 +18,29 @@
     <!-- Start MainNav -->
   <?php include "include/advertiserMainnav.php" ?>
 	<!-- End MainNav -->
-	
+	<?php 
+			$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+				if(strpos($fullUrl, "insert=success") == true)
+					{
+					echo "<div class='alert alert-success' >
+                  <div class='container'>
+                      <div class='alert-icon'>
+                          <i class='material-icons'>check</i>
+                      </div>
+                      <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                          <span aria-hidden='true'><i class='material-icons'>clear</i></span>
+                      </button>
+                      <b>New Page Register Success:</b> Now you can see your register page <a href='viewPage.php' style='color:#fff;'>Click</a>
+                  </div>
+              	</div>";
+                  }
+                  elseif(strpos($fullUrl, "insert=successs") == true)
+                  {
+                    echo "<h2 class='text-dark font-weight-bold mb-2'>Page Register Successfull</h2>";
+                  }
+		?>
+
 
     <!-- partial -->
 		<div class="container-fluid page-body-wrapper">
@@ -27,18 +49,7 @@
 					<div class="row">
 						<div class="col-sm-6 mb-4 mb-xl-0">
 							<div class="d-lg-flex align-items-center">
-								<div>
-									<h3 class="text-dark font-weight-bold mb-2">Hi, welcome back!</h3>
-									<h6 class="font-weight-normal mb-2">Last login was 23 hours ago. View details</h6>
-								</div>
-								<div class="ml-lg-5 d-lg-flex d-none">
-										<button type="button" class="btn bg-white btn-icon">
-											<i class="mdi mdi-view-grid text-success"></i>
-									</button>
-										<button type="button" class="btn bg-white btn-icon ml-2">
-											<i class="mdi mdi-format-list-bulleted font-weight-bold text-primary"></i>
-										</button>
-								</div>
+								
 							</div>
                         </div>
                         
@@ -81,11 +92,15 @@
 									<div class="row">
                                     <div class="col-12 ">
                                        
-                                            <form class="forms-sample">
-                                                <div class="form-group">
-                                                <label for="exampleInputName1">Name</label>
-                                                <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
-                                                </div>
+											<form method="POST" class="forms-sample"  id="register-form" name="insertPageForm" action="component\rquestPageAction.php" onsubmit="return validate()">
+
+												<div class="form-group row">
+												<label for="exampleInputEmail2" class="col-sm-3 col-form-label">Select Account Type</label>
+												<div class="col-sm-9">
+												<input type="text" class="form-control form-control-sm formstyle" id="postrate" onkeypress="isInputNumber(event)" placeholder="Enter Expected Rate Per Post"  autocomplete="off" name="postrate">
+												</div>
+												</div>
+
                                                 <div class="form-group">
                                                 <label for="exampleInputEmail3">Email address</label>
                                                 <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
@@ -119,8 +134,9 @@
                                                 <label for="exampleTextarea1">Textarea</label>
                                                 <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                                                <button class="btn btn-light">Cancel</button>
+
+												
+												<input type="submit" name="submitreg" id="btn" class="btn btn-info mr-2" class="form-submit" value="Submit"/>
                                             </form>
                                            
                                         </div>
