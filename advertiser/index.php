@@ -71,13 +71,12 @@
                     <div class="career-search mb-60">
                         <div class="filter-result">
                         <?php
-                   
                             require '../component/database.php';
                             $query = "SELECT id FROM fb_page ORDER BY id";
                             $query_run = mysqli_query($conn , $query);
                             $row2 = mysqli_num_rows($query_run);
                             echo '<p class="mb-30 ff-montserrat">'.$row2.' : Results for Page</p>'
-                            ?>
+                        ?>
                              
                        
                             
@@ -168,15 +167,10 @@
                             </li>
                         </ul>
                     </nav>
-                    <!-- END Pagination -->
                 </div>
             </div>
-
         </div>
-
-				</div>
-				<!-- content-wrapper ends -->
-				<!-- partial:partials/_footer.html -->
+</div>
 
 
 	<!-- Start MainNav -->

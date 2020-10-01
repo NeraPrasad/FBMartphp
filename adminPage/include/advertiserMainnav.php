@@ -7,54 +7,72 @@ session_start();
           <div class="navbar-menu-wrapper d-flex align-items-center justify-content-between">
             <ul class="navbar-nav navbar-nav-left">
 
+
+              <!-- Notifications -->
               <li class="nav-item dropdown">
                 <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
                   <i class="mdi mdi-bell mx-0"></i>
-                  <span class="count bg-success">2</span>
+                  <span class="count bg-success">
+                  <?php
+                    require '../component/database.php';
+                    $userId = $_SESSION['id'];
+                    $query = "SELECT * FROM fb_request WHERE userId = '$userId' AND notify=0";
+                    $query_run = mysqli_query($conn , $query);
+                    $row2 = mysqli_num_rows($query_run);
+                    echo $row2;
+                  ?>
+                  </span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                  <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                  <a class="dropdown-item preview-item">
+                <div style="padding: 5px; border: 1px solid #DFD8D8; width:300px;" class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                  <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p> <br>
+                  
+                  
+
+                  <?php
+                    require '../component/database.php';
+                    $userId = $_SESSION['id'];
+                    $sql = "SELECT * FROM fb_request WHERE userId = '$userId' AND notify=0";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) 
+
+                    { 
+                  ?>
+
+                  <a class="dropdown-item preview-item" href="notificationViewPage?id=<?php echo $row['id']; ?>">
                     <div class="preview-thumbnail">
                         <div class="preview-icon bg-success">
-                          <i class="mdi mdi-information mx-0"></i>
+                          <i class="mdi mdi-bell mx-0"></i>
                         </div>
                     </div>
                     <div class="preview-item-content">
-                        <h6 class="preview-subject font-weight-normal">Application Error</h6>
+                        <h6 class="preview-subject font-weight-normal"><?php echo $row['title']; ?></h6>
                         <p class="font-weight-light small-text mb-0 text-muted">
-                          Just now
+                        <?php echo $row['insert_date']; ?>
                         </p>
                     </div>
                   </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                        <div class="preview-icon bg-warning">
-                          <i class="mdi mdi-settings mx-0"></i>
-                        </div>
-                    </div>
-                    <div class="preview-item-content">
-                        <h6 class="preview-subject font-weight-normal">Settings</h6>
-                        <p class="font-weight-light small-text mb-0 text-muted">
-                          Private message
-                        </p>
-                    </div>
+           
+                  <?php 
+                    }
+                      } 
+                      else {
+                      echo "
+                      0 results";
+                      }
+                      $conn->close();
+                  ?>
+
+                  <a class="dropdown-item preview-item" href="notificationPage.php">
+                        <h6 class="preview-subject font-weight-normal">View All</h6>
                   </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                        <div class="preview-icon bg-info">
-                          <i class="mdi mdi-account-box mx-0"></i>
-                        </div>
-                    </div>
-                    <div class="preview-item-content">
-                        <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                        <p class="font-weight-light small-text mb-0 text-muted">
-                          2 days ago
-                        </p>
-                    </div>
-                  </a>
+
                 </div>
               </li>
+
+
+
               <li class="nav-item dropdown">
                 <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
                   <i class="mdi mdi-email mx-0"></i>
@@ -141,7 +159,7 @@ session_start();
                 <li class="nav-item nav-profile dropdown">
                   <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                     <span class="nav-profile-name"><?php echo $_SESSION['username'] ?></span>
-                    <span class="online-status"></span>
+                    <span class="online-notify"></span>
                     <img src="../images/faces/face27.jpg" alt="profile"/>
                   </a>
                   <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
@@ -202,15 +220,7 @@ session_start();
                     <i class="menu-arrow"></i>
                   </a>
               </li> 
-
-             
-              <!-- <li class="nav-item">
-                  <a href="messagesPage.php" class="nav-link">
-                    <i class="mdi mdi-message-text menu-icon"></i>
-                    <span class="menu-title">Messages</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-              </li> -->
+ 
 
               <li class="nav-item">
                   <a href="notificationPage.php" class="nav-link">
@@ -221,7 +231,6 @@ session_start();
               </li>
 
               
-
               <li class="nav-item">
                   <a href="activityPage.php" class="nav-link">
                     <i class="mdi mdi-flash menu-icon"></i>
