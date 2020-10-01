@@ -3,7 +3,6 @@
   <head>
 	<title>Notification Page</title>
 
-	
 
 	 <!-- Start MainNav -->
    <?php include "./include/StyleCSS.php" ?>
@@ -167,6 +166,8 @@
                                 <div class="job-right my-4 flex-shrink-0">
                                 <a href="notificationViewPage?id=<?php echo $row['id']; ?>" name="submit" class="btn d-block w-100 d-sm-inline-block btn-custom bg-info text-white">View</a>
                                 </div>
+
+               
                             </div>
 
                                 <?php 

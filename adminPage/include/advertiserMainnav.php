@@ -147,7 +147,7 @@ session_start();
 
 
                 <li class="nav-item dropdown  d-lg-flex d-none">
-                  <button type="button" onclick="location.href='../advertiser/index.php'" class="btn btn-inverse-primary btn-sm">Switch To Page Admin </button>
+                  <button type="button" onclick="location.href='../advertiser/index.php'" class="btn btn-inverse-primary btn-sm">Switch To Advertiser </button>
                 </li>
 
 
@@ -230,11 +230,13 @@ session_start();
                   </a>
               </li>
 
+            
+
               
               <li class="nav-item">
-                  <a href="activityPage.php" class="nav-link">
+                  <a href="orderPage.php" class="nav-link">
                     <i class="mdi mdi-flash menu-icon"></i>
-                    <span class="menu-title">Activity</span></a>
+                    <span class="menu-title">Order</span></a>
               </li>
 
               <li class="nav-item">

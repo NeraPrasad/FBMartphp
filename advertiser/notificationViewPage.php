@@ -8,7 +8,7 @@ if(isset($_GET["id"]))
 {
 	  $id = $_GET["id"];
 	
-	  $query2 = mysqli_query($conn,"UPDATE fb_request SET notify=1 where id='$id'");
+	  $query2 = mysqli_query($conn,"UPDATE fb_request SET notify_advertiser=1 where id='$id'");
 	 
 	  $query = mysqli_query($conn,"SELECT * from fb_request where id='$id'");
 	  $row = mysqli_fetch_array($query);
@@ -16,21 +16,21 @@ if(isset($_GET["id"]))
 	  
 
 }
-elseif (isset($_GET["orderAccept"])) {
+// elseif (isset($_GET["orderAccept"])) {
 
-	$orderAccept = $_GET["orderAccept"];
-	$orderstatus = mysqli_query($conn,"UPDATE fb_request SET order_status=1 where id='$orderAccept'");
-	header("location: notificationViewPage.php?id=$orderAccept");
+// 	$orderAccept = $_GET["orderAccept"];
+// 	$orderstatus = mysqli_query($conn,"UPDATE fb_request SET order_status=1 where id='$orderAccept'");
+// 	header("location: notificationViewPage.php?id=$orderAccept");
 
-}
+// }
 
-elseif (isset($_GET["orderReject"])) {
+// elseif (isset($_GET["orderReject"])) {
 
-	$orderReject = $_GET["orderReject"];
-	$orderstatus = mysqli_query($conn,"UPDATE fb_request SET order_status=2 where id='$orderReject'");
-	header("location: notificationViewPage.php?id=$orderReject");
+// 	$orderReject = $_GET["orderReject"];
+// 	$orderstatus = mysqli_query($conn,"UPDATE fb_request SET order_status=2 where id='$orderReject'");
+// 	header("location: notificationViewPage.php?id=$orderReject");
 
-}
+// }
 
 
 
@@ -158,13 +158,8 @@ elseif (isset($_GET["orderReject"])) {
 
 											  <?php 
 											  $order_status = $row["order_status"];
-											  if( $order_status == "0")
-												{
-													echo "<a href='notificationViewPage.php?orderAccept=" .$row['id']."' name='submit' class='btn d-block w-100 d-sm-inline-block btn-custom bg-primary text-white'>Accept</a> ";
-													echo "<br><br>";
-													echo "<a href='notificationViewPage.php?orderReject=" .$row['id']."' name='submit' class='btn d-block w-100 d-sm-inline-block btn-custom bg-info text-white'>Reject</a>";	
-												}
-												elseif($order_status == "1")
+											  
+												if($order_status == "1")
 												{
 													echo "<a href='#' disabled class='btn d-block w-100 d-sm-inline-block btn-custom bg-success text-white'>Order is Processing</a>";
 												}

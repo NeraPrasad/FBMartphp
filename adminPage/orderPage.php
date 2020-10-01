@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<title>Manage Request Order - Advertiser</title>
+	<title>Notification Page</title>
 
 
 	 <!-- Start MainNav -->
@@ -64,7 +64,7 @@
                             <h2>Manage Order</h2>
                             <ul id="tabs" class="nav nav-tabs">
 
-                                <li class="nav-item"><a class="nav-link small text-uppercase active" data-target="#tab1" data-toggle="tab">My Accept Order<span style="margin-top:4px" class="ml-2 float-right badge badge-pill badge-success"><?php
+                                <li class="nav-item"><a class="nav-link small text-uppercase active" data-target="#tab1" data-toggle="tab">Accept Order<span style="margin-top:4px" class="ml-2 float-right badge badge-pill badge-success"><?php
                                     require '../component/database.php';
                                     $userId = $_SESSION['id'];
                                     $query = "SELECT * FROM fb_request WHERE userId = '$userId' AND order_status=1";
@@ -73,7 +73,7 @@
                                     echo $row5;
                                 ?></span></a></li>
 
-                                <li class="nav-item"><a class="nav-link small text-uppercase" data-target="#tab2" data-toggle="tab">My Reject Order<span style="margin-top:4px" class="ml-2 float-right badge badge-pill badge-warning"><?php
+                                <li class="nav-item"><a class="nav-link small text-uppercase" data-target="#tab2" data-toggle="tab">Reject Order<span style="margin-top:4px" class="ml-2 float-right badge badge-pill badge-warning"><?php
                                     require '../component/database.php';
                                     $userId = $_SESSION['id'];
                                     $query = "SELECT * FROM fb_request WHERE userId = '$userId' AND order_status=2";
@@ -310,10 +310,17 @@
                                 </div>
                             </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
+
+
+
+                            </div>
+                            </div>
+                        </div>
+                        </section>
+
+
+
+        
 	</div>
 			
 
