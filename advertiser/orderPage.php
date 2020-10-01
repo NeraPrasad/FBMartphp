@@ -6,22 +6,57 @@
 	
 
 	 <!-- Start MainNav -->
-   <?php include "./include/StyleCSS.php" ?>
+   <?php include "./include/StyleCSS.php"?>
+   
    <?php include "./style/orderPagestyle.php" ?>
 	<!-- End MainNav -->
-
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-	
-
+  
+  <link rel="stylesheet" href="../css/notificationBar.css">
+</head>
   </head>
 
   <body>
+
+  
     <div class="container-scroller">
 
     <!-- Start MainNav -->
   <?php include "include/advertiserMainnav.php" ?>
 	<!-- End MainNav -->
-	
+
+                <?php 
+									$fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+									if(strpos($fullUrl, "delete=success") == true)
+									{
+									echo "<div class='alert alert-success'>
+                  <div class='container'>
+                      <div class='alert-icon'>
+                          <i class='material-icons'>check</i>
+                      </div>
+                      <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                          <span aria-hidden='true'><i class='material-icons'>clear</i></span>
+                      </button>
+                      <b>Page Delete Success:</b> You Can Request New Order <a href='viewPage.php' style='color:#fff;'>Click</a> 
+                  </div>
+                </div>";
+                  }
+                  elseif(strpos($fullUrl, "update=success") == true)
+                  {
+                    echo "<div class='alert alert-success'>
+                  <div class='container'>
+                      <div class='alert-icon'>
+                          <i class='material-icons'>check</i>
+                      </div>
+                      <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                          <span aria-hidden='true'><i class='material-icons'>clear</i></span>
+                      </button>
+                      <b>Page Update Success:</b> You Can Add New Page <a href='viewPage.php' style='color:#fff;'>Click</a> 
+                  </div>
+                </div>";
+                  }
+								?>
+	  
 
     <!-- partial -->
 		<div class="container-fluid page-body-wrapper">
@@ -31,19 +66,11 @@
 						<div class="col-sm-6 mb-4 mb-xl-0">
 							<div class="d-lg-flex align-items-center">
 								<div>
-									<h3 class="text-dark font-weight-bold mb-2">Hi, welcome back!</h3>
-									<h6 class="font-weight-normal mb-2">Last login was 23 hours ago. View details</h6>
-								</div>
-								<div class="ml-lg-5 d-lg-flex d-none">
-										<button type="button" class="btn bg-white btn-icon">
-											<i class="mdi mdi-view-grid text-success"></i>
-									</button>
-										<button type="button" class="btn bg-white btn-icon ml-2">
-											<i class="mdi mdi-format-list-bulleted font-weight-bold text-primary"></i>
-										</button>
+                
+									
 								</div>
 							</div>
-                        </div>
+            </div>
                         
                         <!-- Right Button -->
 						<div class="col-sm-6">
@@ -67,229 +94,78 @@
 										</button>
 								</div>
 							</div>
-                        </div>
-                        
-                    </div>
+            </div>                
+        </div>
                     
-					<div class="container">
+<div class="container mt-4">
 <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title text-uppercase mb-0">Manage Users</h5>
+                <h5 class="card-title text-uppercase mb-0">Manage Pages</h5>
             </div>
             <div class="table-responsive">
+                <?php 
+                    require '../component/database.php';
+                    $result = $conn-> query("SELECT * FROM fb_request") or die ($conn->error);
+                 ?>
+
                 <table class="table no-wrap user-table mb-0">
                   <thead>
                     <tr>
-                      <th scope="col" class="border-0 text-uppercase font-medium pl-4">#</th>
-                      <th scope="col" class="border-0 text-uppercase font-medium">Name</th>
-                      <th scope="col" class="border-0 text-uppercase font-medium">Occupation</th>
-                      <th scope="col" class="border-0 text-uppercase font-medium">Email</th>
-                      <th scope="col" class="border-0 text-uppercase font-medium">Added</th>
-                      <th scope="col" class="border-0 text-uppercase font-medium">Category</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium pl-4">No</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium">Page</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium">Title</th>
+                      <th scope="col" class="border-0 text-uppercase font-medium">Request Date</th>
                       <th scope="col" class="border-0 text-uppercase font-medium">Manage</th>
                     </tr>
                   </thead>
                   <tbody>
+
+                 <?php 
+                    while($row = $result->fetch_assoc()):
+                 ?>
+
                     <tr>
                       <td class="pl-4">1</td>
                       <td>
-                          <h5 class="font-medium mb-0">Daniel Kristeen</h5>
-                          <span class="text-muted">Texas, Unitedd states</span>
+                          <h5 class="font-medium mb-0"><?php echo $row['pageId'];?></h5>
+                          <!-- <span class="text-muted">Texas, Unitedd states</span> -->
                       </td>
                       <td>
-                          <span class="text-muted">Visual Designer</span><br>
-                          <span class="text-muted">Past : teacher</span>
+                          <span class="text-muted"><?php echo $row['title'];?></span><br>
+                         
                       </td>
                       <td>
-                          <span class="text-muted">daniel@website.com</span><br>
-                          <span class="text-muted">999 - 444 - 555</span>
+                          <span class="text-muted"><?php echo $row['insert_date'];?></span><br>
+                          
                       </td>
+                      
+                     
                       <td>
-                          <span class="text-muted">15 Mar 1988</span><br>
-                          <span class="text-muted">10: 55 AM</span>
-                      </td>
-                      <td>
-                        <select class="form-control category-select" id="exampleFormControlSelect1">
-                          <option>Modulator</option>
-                          <option>Admin</option>
-                          <option>User</option>
-                          <option>Subscriber</option>
-                        </select>
-                      </td>
-                      <td>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="fa fa-key"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-upload"></i> </button>
+                        <a href="orderPageView?view=<?php echo $row['id']; ?>" name="edit" id="btn" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"  onclick="return validate();"><i class="fa fa-key"></i></a>
+                        <a href="orderPageEdit?editid=<?php echo $row['id']; ?>" name="edit" id="btn" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"  onclick="return validate();"><i class="fa fa-edit"></i></a>
+                        <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2 btn-del" ><i class="fa fa-trash"></i></button>
                       </td>
                     </tr>
-                    <tr>
-                      <td class="pl-4">2</td>
-                      <td>
-                          <h5 class="font-medium mb-0">Emma Smith</h5>
-                          <span class="text-muted">Texas, Unitedd states</span>
-                      </td>
-                      <td>
-                          <span class="text-muted">Visual Designer</span><br>
-                          <span class="text-muted">Past : teacher</span>
-                      </td>
-                      <td>
-                          <span class="text-muted">daniel@website.com</span><br>
-                          <span class="text-muted">999 - 444 - 555</span>
-                      </td>
-                      <td>
-                          <span class="text-muted">15 Mar 1855</span><br>
-                          <span class="text-muted">10: 00 AM</span>
-                      </td>
-                      <td>
-                        <select class="form-control category-select" id="exampleFormControlSelect1">
-                          <option>Modulator</option>
-                          <option>Admin</option>
-                          <option>User</option>
-                          <option>Subscriber</option>
-                        </select>
-                      </td>
-                      <td>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="fa fa-key"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-upload"></i> </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="pl-4">3</td>
-                      <td>
-                          <h5 class="font-medium mb-0">Olivia Johnson</h5>
-                          <span class="text-muted">Texas, Unitedd states</span>
-                      </td>
-                      <td>
-                          <span class="text-muted">Visual Designer</span><br>
-                          <span class="text-muted">Past : teacher</span>
-                      </td>
-                      <td>
-                          <span class="text-muted">daniel@website.com</span><br>
-                          <span class="text-muted">999 - 444 - 555</span>
-                      </td>
-                      <td>
-                          <span class="text-muted">17 Aug 1988</span><br>
-                          <span class="text-muted">12: 55 AM</span>
-                      </td>
-                      <td>
-                        <select class="form-control category-select" id="exampleFormControlSelect1">
-                          <option>Modulator</option>
-                          <option>Admin</option>
-                          <option>User</option>
-                          <option>Subscriber</option>
-                        </select>
-                      </td>
-                      <td>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="fa fa-key"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-upload"></i> </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="pl-4">4</td>
-                      <td>
-                          <h5 class="font-medium mb-0">Isabella Williams</h5>
-                          <span class="text-muted">Texas, Unitedd states</span>
-                      </td>
-                      <td>
-                          <span class="text-muted">Visual Designer</span><br>
-                          <span class="text-muted">Past : teacher</span>
-                      </td>
-                      <td>
-                          <span class="text-muted">daniel@website.com</span><br>
-                          <span class="text-muted">999 - 444 - 555</span>
-                      </td>
-                      <td>
-                          <span class="text-muted">26 Mar 1999</span><br>
-                          <span class="text-muted">10: 55 AM</span>
-                      </td>
-                      <td>
-                        <select class="form-control category-select" id="exampleFormControlSelect1">
-                          <option>Modulator</option>
-                          <option>Admin</option>
-                          <option>User</option>
-                          <option>Subscriber</option>
-                        </select>
-                      </td>
-                      <td>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="fa fa-key"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-upload"></i> </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="pl-4">5</td>
-                      <td>
-                          <h5 class="font-medium mb-0">Sophia Jones</h5>
-                          <span class="text-muted">Texas, Unitedd states</span>
-                      </td>
-                      <td>
-                          <span class="text-muted">Visual Designer</span><br>
-                          <span class="text-muted">Past : teacher</span>
-                      </td>
-                      <td>
-                          <span class="text-muted">daniel@website.com</span><br>
-                          <span class="text-muted">999 - 444 - 555</span>
-                      </td>
-                      <td>
-                          <span class="text-muted">16 Aug 2001</span><br>
-                          <span class="text-muted">10: 55 AM</span>
-                      </td>
-                      <td>
-                        <select class="form-control category-select" id="exampleFormControlSelect1">
-                          <option>Modulator</option>
-                          <option>Admin</option>
-                          <option>User</option>
-                          <option>Subscriber</option>
-                        </select>
-                      </td>
-                      <td>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="fa fa-key"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-upload"></i> </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="pl-4">6</td>
-                      <td>
-                          <h5 class="font-medium mb-0">Charlotte Brown</h5>
-                          <span class="text-muted">Texas, Unitedd states</span>
-                      </td>
-                      <td>
-                          <span class="text-muted">Visual Designer</span><br>
-                          <span class="text-muted">Past : teacher</span>
-                      </td>
-                      <td>
-                          <span class="text-muted">daniel@website.com</span><br>
-                          <span class="text-muted">999 - 444 - 555</span>
-                      </td>
-                      <td>
-                          <span class="text-muted">15 Mar 1988</span><br>
-                          <span class="text-muted">10: 55 AM</span>
-                      </td>
-                      <td>
-                        <select class="form-control category-select" id="exampleFormControlSelect1">
-                          <option>Modulator</option>
-                          <option>Admin</option>
-                          <option>User</option>
-                          <option>Subscriber</option>
-                        </select>
-                      </td>
-                      <td>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i class="fa fa-key"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-trash"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-edit"></i> </button>
-                        <button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i class="fa fa-upload"></i> </button>
-                      </td>
-                    </tr>
+
+                    <div id="id01" class="modal">
+                   
+                    <form class="modal-content" action="/action_page.php">
+                      <div class="container" style="text-align: center;">
+                        <h1>Delete Account</h1>
+                        <p>Are you sure you want to delete your account?</p>
+                        <div class="clearfix">
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                        <a href="component/orderPageAction.php?delete=<?php echo $row['id']; ?>" name="delete" id="btn" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</a> 
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+
+              <?php endwhile; ?>
+
+
                   </tbody>
                 </table>
             </div>
@@ -298,13 +174,10 @@
 </div>
 </div>
 
+
+
+
 				</div>
-				<!-- content-wrapper ends -->
-				<!-- partial:partials/_footer.html -->
-		
-
-
-
 	<!-- Start MainNav -->
 		<?php include "./include/advertiserMainfooter.php" ?>
 	<!-- End MainNav -->
@@ -322,6 +195,21 @@
 	<?php include "./include/StyleJS.php" ?>
 	<!-- End MainNav -->
 
-    
+<script>
+$(document).ready(function() {
+    $('body').bootstrapMaterialDesign();
+});
+</script>
+
+<script>
+
+var modal = document.getElementById('id01');
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
   </body>
 </html>

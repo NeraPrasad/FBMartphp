@@ -1,40 +1,39 @@
 <?php
-
-$id = "";
-
-if(isset($_POST['submit'])){
-	$selectacc_arr = $_POST['selectacc'];
-    $id =  implode(", ", $selectacc_arr);
-}
+require '../component/database.php';
 
 if(isset($_GET["id"]))
 {
-	  $id = $_GET["id"];	  
+	  $id = $_GET["id"];
+	  $query = mysqli_query($conn,"SELECT * from fb_request where id='$id'");
+	  $row = mysqli_fetch_array($query);
+
+	  
+	  $query2 = mysqli_query($conn,"SELECT * from fb_page where id='$pageId'");
+	  $row2 = mysqli_fetch_array($query2);
+
+	//   $poli = $row2["poli_cat"];
+	//   $poli_arry = explode(",", $poli); 
+
+	//   $acc = $row2["acc_cat"];
+	//   $acc_arry = explode(",", $acc);
 }
 
-
-if( isset($id) && !empty($id) )
-  {
-
-?> 
-
+?>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<title>Register Page</title>
-
+	<title>Update Register Page</title>
 	
-
 	 <!-- Start MainNav -->
 	 <?php include "./include/StyleCSS.php" ?>
 	 <?php include "./style/orderPagestyle.php" ?>
 	<!-- End MainNav -->
 
-
   </head>
 
   <body>
+  
     <div class="container-scroller">
 
     <!-- Start MainNav -->
@@ -54,7 +53,7 @@ if( isset($id) && !empty($id) )
                       <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
                           <span aria-hidden='true'><i class='material-icons'>clear</i></span>
                       </button>
-                      <b>New Page Register Success:</b> Now you can see your register page <a href='viewPage.php' style='color:#fff;'>Click</a>
+                      <b> Update Page Success:</b> Now you can see your update page <a href='viewPage.php' style='color:#fff;'>Click</a>
                   </div>
               	</div>";
                   }
@@ -105,68 +104,75 @@ if( isset($id) && !empty($id) )
         </div>
                     
 					<div class="row mt-4">
-
                     <div class="col-lg-1 mb-3 mb-lg-0">
-							
                     </div>
-
 						<div class="col-lg-10 grid-margin stretch-card">
 							<div class="card">
 								<div class="card-body">
-								
-                                <h4 class="card-title">Register Page</h4>
+                                <h4 class="card-title">Order View</h4>
 									<div class="row">
                                     <div class="col-12 ">
                                        
-											<form method="POST" class="forms-sample"  id="register-form" name="insertPageForm" action="component\requestPageAction.php" onsubmit="return validate()">
 
+										<!-- Portfolio Item Heading -->
+										<h1 class="my-4">
+										<small>Secondary Text</small>
+										</h1>
 
+										<!-- Portfolio Item Row -->
+										<div class="row">
 
-											<div class="form-group row">
-											<label for="exampleInputEmail2" class="col-sm-3 col-form-label">Title</label>
-											<div class="col-sm-9">
-												<input type="text" class="form-control form-control-sm formstyle" id="title" style="border: 1px solid #51E1C3; "   placeholder="Enter URL Your Account" autocomplete="off"  name="title">
-												<span id="urlMsg"></span>
-											</div>
-											</div>
+										<div class="col-md-8">
+											<img class="img-fluid" src="http://placehold.it/750x500" alt="">
+										</div>
 
+										<div class="col-md-4">
+											<h3 class="my-3">Project Description</h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+											<h3 class="my-3">Project Details</h3>
+											<ul>
+											<li>Lorem Ipsum</li>
+											<li>Dolor Sit Amet</li>
+											<li>Consectetur</li>
+											<li>Adipiscing Elit</li>
+											</ul>
+										</div>
 
-											<div class="form-group row">
-											<label for="exampleInputEmail2" class="col-sm-3 col-form-label">Description</label>
-											<div class="col-sm-9">
-												<textarea class="form-control" style="border: 1px solid #51E1C3;" id="description" style="border: 1px solid #51E1C3; " name="description" rows="4"></textarea>
-												<span id="urlMsg"></span>
-											</div>
-											</div>
+										</div>
+										<!-- /.row -->
 
-											<div class="form-group row">
-											<label for="exampleInputEmail2" class="col-sm-3 col-form-label">Image</label>
-											<div class="col-sm-9">
-												<input type="text" class="form-control form-control-sm formstyle" id="image" style="border: 1px solid #51E1C3; " placeholder="Enter URL Your Account" autocomplete="off"  name="image">
-												<span id="urlMsg"></span>
-											</div>
-											</div>
+										<!-- Related Projects Row -->
+										<h3 class="my-4">Related Projects</h3>
 
-											<div class="form-group row">
-											<label for="exampleInputEmail2" class="col-sm-3 col-form-label">Special </label>
-											<div class="col-sm-9">
-												<textarea class="form-control" style="border: 1px solid #51E1C3;" id="special" style="border: 1px solid #51E1C3; " name="special" rows="4"></textarea>
-												<span id="urlMsg"></span>
-											</div>
-											</div>
+										<div class="row">
 
-											
-											<input type="hidden" class="form-control form-control-sm formstyle" id="pageId" value="<?php echo $id?>"  placeholder="Enter Expected Rate Per Post"  autocomplete="off" name="pageId">
-									
+										<div class="col-md-3 col-sm-6 mb-4">
+											<a href="#">
+												<img class="img-fluid" src="http://placehold.it/500x300" alt="">
+												</a>
+										</div>
 
+										<div class="col-md-3 col-sm-6 mb-4">
+											<a href="#">
+												<img class="img-fluid" src="http://placehold.it/500x300" alt="">
+												</a>
+										</div>
 
+										<div class="col-md-3 col-sm-6 mb-4">
+											<a href="#">
+												<img class="img-fluid" src="http://placehold.it/500x300" alt="">
+												</a>
+										</div>
 
-											<input type="submit" name="submitreg" id="btn" class="btn btn-info mr-2" class="form-submit" value="Submit"/>
+										<div class="col-md-3 col-sm-6 mb-4">
+											<a href="#">
+												<img class="img-fluid" src="http://placehold.it/500x300" alt="">
+												</a>
+										</div>
 
-
-                                            </form>
-                                           
-                                        </div>
+										</div>
+										<!-- /.row -->
+                                    </div>
 									</div>
 								</div>
 							</div>
@@ -263,5 +269,3 @@ function isInputNumber(evt) {
     
 </script>
 
-<?php }
-   else{ header("Location: index"); } ?>

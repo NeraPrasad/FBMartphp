@@ -190,14 +190,7 @@ session_start();
               </li>
 
 
-              <li class="nav-item">
-                  <a href="requestPage.php" class="nav-link">
-                    <i class="mdi mdi-library-plus menu-icon"></i>
-                    <span class="menu-title">Request</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-              </li> 
-
+          
               <li class="nav-item">
                   <a href="orderPage.php" class="nav-link">
                     <i class="mdi mdi-chart-areaspline menu-icon"></i>
